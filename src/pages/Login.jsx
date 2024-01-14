@@ -34,7 +34,7 @@ const Login = () => {
       if (!res.ok) alert(result.message)
       console.log(result);
       dispatch({ type: 'LOGIN_SUCCESS', payload: result.data })
-      { result.success && navigate('/') }
+      { result.success && navigate('/home') }
     } catch (err) {
       dispatch({type:'LOGIN_FAILURE',payload: err.message})
     }

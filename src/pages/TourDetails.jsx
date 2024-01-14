@@ -36,7 +36,8 @@ const TourDetails = () => {
   const reviewMsgRef = useRef('');
   console.log(reviewMsgRef);
   const [tourRating, setTourRating] = useState(1)
-  const {user}=useContext(AuthContext)
+  const { user } = useContext(AuthContext)
+  console.log(user);
   const HandleSubmit = async (e) => {
     e.preventDefault();
     const reviewText = reviewMsgRef.current.value;

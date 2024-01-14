@@ -22,7 +22,7 @@ const nav_links=[
 const Header = () => {
   const navigate = useNavigate();
   const { user, dispatch } = useContext(AuthContext);
-  
+  console.log(user);
   const logout = () => {
     dispatch({ type: 'LOGOUT' });
     navigate('/login');
@@ -36,15 +36,19 @@ const Header = () => {
               <img src={Travel__logo} alt=''/>
               <h1 className='mt-2'><a style={{ textDecoration: 'none' , color:'black'}} href="/"><strong style={{ color: '#ff7e01' }}>Travel</strong>Buddy</a></h1>
             </div>
-            <div className='navigation'>
+            {user?(<div className='navigation'>
               <ul className='menu d-flex align-items-center gap-5'>
                 {nav_links.map((item, index) => (
                   <li className='nav__item' key={index}>
-                    <NavLink className={navClass=>navClass.isActive?'active__link':'' } to={item.path}>{item.display}</NavLink>
+                    <NavLink className={navClass => navClass.isActive ? 'active__link' : ''} to={item.path}>{item.display}</NavLink>
                   </li>
                 ))}
               </ul>
-            </div>
+            </div>):(<div className='navigation'>
+              <ul className='menu d-flex align-items-center gap-5'>
+                
+              </ul>
+            </div>)}
             <div className='nav__right d-flex align-items-center gap-4'>
               <div className='nav__btns d-flex align-items-center gap-4'>
                 {

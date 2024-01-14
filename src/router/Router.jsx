@@ -9,10 +9,13 @@ import Tours from '../pages/Tours';
 import ThankYou from '../pages/ThankYou';
 import Gallery from '../pages/Gallery';
 import About from '../pages/About';
+
 const Router = () => {
+ 
+  
   return (
       <Routes>
-        <Route path='/' element={<Navigate to='/home' />}/>
+        <Route path='/' element={<Navigate to='/login' />}/>
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/gallery' element={<Gallery />} />

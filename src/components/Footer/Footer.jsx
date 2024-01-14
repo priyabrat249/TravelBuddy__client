@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext} from 'react';
 import { Container, Row, Col,ListGroup,ListGroupItem} from 'reactstrap';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 import './Footer.css';
 const discover_links=[
   {
@@ -31,9 +32,13 @@ const Quick_links=[
   }
 ]
 const Footer = () => {
+  const { user, dispatch } = useContext(AuthContext);
   return (
+    
     <section className='footer'>
+      
       <Container className='footer__container'>
+      {user && (
         <Row>
           <Col lg='3'>
             <div className="logo" style={{marginBottom:'1rem'}}>
@@ -100,10 +105,11 @@ const Footer = () => {
             </ListGroup>
           </Col>
         </Row>
-        
+        )
+      }
       </Container>
       <div className='footer_copyright'>
-          <p>Copyright <i class="ri-copyright-line"></i> 2023 Dare2Achieve. All Rights Reserved</p>
+          <p>Copyright <i class="ri-copyright-line"></i> 2023 priyabratswain. All Rights Reserved</p>
       </div>
     </section>
   )
